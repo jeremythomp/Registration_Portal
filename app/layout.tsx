@@ -1,12 +1,18 @@
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
-import { Container } from "@/Container";
-import "./globals.css";
+import Footer from '@/components/Footer';
+import Header from '@/components/Header';
+import { Container } from '@/components/Container';
+import './globals.css';
+import { Montserrat } from 'next/font/google';
+
+const montserrat = Montserrat({
+  subsets: ['latin'],
+  variable: '--font-montserrat',
+});
 
 export const metadata = {
-  title: "The Barbados Digital ID Card - Trusted Identity",
+  title: 'The Barbados Digital ID Card - Trusted Identity',
   description:
-    "Find all the information you&apos;ll need regarding the Barbados digital Identity Card.",
+    'Find all the information you&apos;ll need regarding the Barbados digital Identity Card.',
 };
 
 export default function RootLayout({
@@ -16,14 +22,20 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
-        <Container>
+      <head>
+        <meta
+          name="viewport"
+          content="width=device-width, height=device-height, initial-scale=1"
+        />
+      </head>
+      <body className={`${montserrat.variable} font-sans`}>
+        <div>
           <Header />
-        </Container>
-        {children}
-        <Container>
-          <Footer />
-        </Container>
+          <main className="pt-[var(--navigation-height)]">{children}</main>
+          <Container>
+            <Footer />
+          </Container>
+        </div>
       </body>
     </html>
   );

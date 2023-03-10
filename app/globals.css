@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root {
+    --navigation-height: 5rem;
+  }
+
+  html {
+    font-size: 62.5%;
+  }
+}
+
+@layer utilities {
+  .text-shadow {
+    text-shadow: (0 0 0 / 56%) 0px 3px 12px;
+  }
+}
